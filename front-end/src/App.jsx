@@ -1,14 +1,15 @@
 import React from 'react'
-import { Link, Routes, Route } from 'react-router-dom'
+import { Link, Routes, Route, useLocation } from 'react-router-dom'
 import TravelForm from './components/TravelForm'
 import Travellers from './components/Travellers'
 
 function App() {
+    const getActive = (loc) => useLocation().pathname == loc ? 'active' : '';
     return (
         <div>
             <nav>
-                <Link to="/">Travel</Link>
-                <Link to="/travellers">Travellers</Link>
+                <Link to="/" className={`navitem ${getActive('/')}`}>Travel</Link>
+                <Link to="/travellers" className={`navitem ${getActive('/travellers')}`}>Travellers</Link>
             </nav>
             <Routes>
                 <Route exact path="/" element={<TravelForm />} />
