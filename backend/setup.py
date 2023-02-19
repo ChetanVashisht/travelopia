@@ -13,6 +13,10 @@ def after_request(response):
     response.headers["Access-Control-Allow-Headers"] = "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization"
     return response
 
+@app.route('/')
+def status():
+    return jsonify({'status': 'Running'})
+
 if __name__ == "__main__":
     createTables()
     app.run(host='0.0.0.0', port=8000, debug=False)
