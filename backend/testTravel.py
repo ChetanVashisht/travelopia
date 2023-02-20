@@ -9,22 +9,22 @@ class testInsert(unittest.TestCase):
 
     def testInsert(self):
         req = {
-            "name": "namus",
-            "email": "4namus@fff.com",
+            "name": "Chetan Vashisht",
+            "email": "chetanisthebest@gmail.com",
             "destination": "Europe",
-            "travellerCount": "201",
-            "budget": "2200"
+            "travellerCount": "2",
+            "budget": "1000"
         }
         response = requests.post('http://localhost:8000/travellers/', json=req)
         self.assertIsNotNone(response.json()["id"])
 
     def testGetTraveller(self):
         req = {
-            "name": "namus",
-            "email": "4namus@fff.com",
+            "name": "Chetan Vashisht",
+            "email": "chetanisthebest@gmail.com",
             "destination": "Europe",
-            "travellerCount": "201",
-            "budget": "2200"
+            "travellerCount": "2",
+            "budget": "1000"
         }
         response = requests.post('http://localhost:8000/travellers/', json=req)
         id = response.json()["id"]

@@ -16,10 +16,11 @@ set -m
 echo "Starting Backend"
 python setup.py&
 
-sleep 3
+sleep 2
 
 echo "Testing Backend"
 python testTravel.py
+python -mwebbrowser http://localhost:8000/
 
 fg
 
