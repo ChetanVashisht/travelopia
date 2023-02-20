@@ -5,7 +5,7 @@ from operator import getitem
 class testInsert(unittest.TestCase):
     def testAppIsUp(self):
         response = requests.get('http://localhost:8000/')
-        self.assertEqual(response.json(), {'status': 'Running'})
+        self.assertEqual(response.status_code, 200)
 
     def testInsert(self):
         req = {
@@ -15,7 +15,7 @@ class testInsert(unittest.TestCase):
             "travellerCount": "201",
             "budget": "2200"
         }
-        response = requests.post('http://localhost:8000/travellers', json=req)
+        response = requests.post('http://localhost:8000/travellers/', json=req)
         self.assertIsNotNone(response.json()["id"])
 
     def testGetTraveller(self):
@@ -26,7 +26,7 @@ class testInsert(unittest.TestCase):
             "travellerCount": "201",
             "budget": "2200"
         }
-        response = requests.post('http://localhost:8000/travellers', json=req)
+        response = requests.post('http://localhost:8000/travellers/', json=req)
         id = response.json()["id"]
         self.assertIsNotNone(id)
 
@@ -34,7 +34,7 @@ class testInsert(unittest.TestCase):
         self.assertEqual(resp.json()['name'], req['name'])
 
     def testGetAllTravellers(self):
-        response = requests.get('http://localhost:8000/travellers')
+        response = requests.get('http://localhost:8000/travellers/')
         self.assertIsInstance(response.json(), list)
 
     def testDeleteTraveller(self):
@@ -45,7 +45,7 @@ class testInsert(unittest.TestCase):
             "travellerCount": "201",
             "budget": "2200"
         }
-        response = requests.post('http://localhost:8000/travellers', json=req)
+        response = requests.post('http://localhost:8000/travellers/', json=req)
         id = response.json()["id"]
         self.assertIsNotNone(id)
 

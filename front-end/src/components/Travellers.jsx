@@ -6,7 +6,7 @@ export default function Travellers() {
     const renderTraveller = (traveller, i) => (<Traveller traveller={traveller} key={i} />)
 
     const loadTravellers = () => {
-        fetch("http://localhost:8000/travellers")
+        fetch("http://localhost:8000/travellers/")
             .then(resp => resp.json())
             .then(setData)
     }

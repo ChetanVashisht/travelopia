@@ -9,11 +9,11 @@ function App() {
         <div>
             <nav>
                 <Link to="/" className={`navitem ${getActive('/')}`}>Travel</Link>
-                <Link to="/travellers" className={`navitem ${getActive('/travellers')}`}>Travellers</Link>
+                <Link to="/tourists" className={`navitem ${getActive('/tourists')}`}>Travellers</Link>
             </nav>
             <Routes>
                 <Route exact path="/" element={<TravelForm />} />
-                <Route exact path="/travellers" element={<Travellers />} />
+                <Route exact path="/tourists" element={<Travellers />} />
             </Routes>
         </div>
     )
